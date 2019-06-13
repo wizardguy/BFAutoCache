@@ -1,9 +1,8 @@
 # BFAutoCache
 
-https://cocoapod-badges.herokuapp.com/v/BFAutoCache/badge.png
-https://cocoapod-badges.herokuapp.com/p/BFAutoCache/badge.png
-https://cocoapod-badges.herokuapp.com/l/BFAutoCache/badge.png)
-
+![](https://img.shields.io/cocoapods/v/BFAutoCache.svg?style=flat)
+![](https://img.shields.io/cocoapods/p/BFAutoCache.svg?style=flat)
+![](https://img.shields.io/cocoapods/l/BFAutoCache.svg?style=flat)
 
 A box value type for automatically caching the value<V> to a specific backend(default is UserDefaults)
 
