@@ -1,5 +1,6 @@
 # BFAutoCache
 
+![](https://img.shields.io/badge/language-swift-orange.svg)
 ![](https://img.shields.io/cocoapods/v/BFAutoCache.svg?style=flat)
 ![](https://img.shields.io/cocoapods/p/BFAutoCache.svg?style=flat)
 ![](https://img.shields.io/cocoapods/l/BFAutoCache.svg?style=flat)
