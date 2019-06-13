@@ -1,4 +1,10 @@
 # BFAutoCache
+
+https://cocoapod-badges.herokuapp.com/v/BFAutoCache/badge.png
+https://cocoapod-badges.herokuapp.com/p/BFAutoCache/badge.png
+https://cocoapod-badges.herokuapp.com/l/BFAutoCache/badge.png)
+
+
 A box value type for automatically caching the value<V> to a specific backend(default is UserDefaults)
 
 ## Motivation
