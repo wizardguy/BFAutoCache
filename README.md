@@ -118,6 +118,12 @@ To cache a value, a key is needed to save the value and retrieve it. So when def
  books <~ ["Swift": 10.0, "Java": 8.0]
  ```
  
+ ## How to Install
+ Simply using Cocoapod:
+ ```
+ pod 'BFAutoCache'
+ ```
+ 
  ## Enhance the BFAutoCache
 Actually, any type that confirms to **`Cachable`** protocol can leverage the benefit of AutoCache box value. You can write you own cachable type extension to pass into AutoCache, for example, a sqlite wrapper or CoreData wrapper, or even a plist wrapper.
  
