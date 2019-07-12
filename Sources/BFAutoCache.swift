@@ -11,7 +11,7 @@ import Foundation
 /**
  Protocol Cachable
  */
-protocol Cachable {
+public protocol Cachable {
     associatedtype T
     static func cache(value: T, forKey: String)
     static func fetchValue(forKey: String) -> T
@@ -19,7 +19,7 @@ protocol Cachable {
 }
 
 
-extension Cachable {
+public extension Cachable {
     static func clear(forKey: String) {
         UserDefaults.standard.removeObject(forKey: forKey)
         UserDefaults.standard.synchronize()
@@ -28,81 +28,81 @@ extension Cachable {
 
 
 extension Int: Cachable {
-    typealias T = Int
-    static func cache(value: Int, forKey: String) {
+    public typealias T = Int
+    public static func cache(value: Int, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
         UserDefaults.standard.synchronize()
     }
     
-    static func fetchValue(forKey: String) -> Int {
+    public static func fetchValue(forKey: String) -> Int {
         return UserDefaults.standard.integer(forKey: forKey)
     }
 }
 
 
 extension String: Cachable {
-    typealias T = String
-    static func cache(value: String, forKey: String) {
+    public typealias T = String
+    public static func cache(value: String, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
         UserDefaults.standard.synchronize()
     }
     
-    static func fetchValue(forKey: String) -> String {
+    public static func fetchValue(forKey: String) -> String {
         return UserDefaults.standard.string(forKey: forKey) ?? ""
     }
 }
 
 extension Bool: Cachable {
-    typealias T = Bool
-    static func cache(value: Bool, forKey: String) {
+    public typealias T = Bool
+    public static func cache(value: Bool, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
         UserDefaults.standard.synchronize()
     }
-    static func fetchValue(forKey: String) -> Bool {
+    public static func fetchValue(forKey: String) -> Bool {
         return UserDefaults.standard.bool(forKey: forKey)
     }
 }
 
 extension Float: Cachable {
-    typealias T = Float
-    static func cache(value: Float, forKey: String) {
+    public typealias T = Float
+    public static func cache(value: Float, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
         UserDefaults.standard.synchronize()
     }
-    static func fetchValue(forKey: String) -> Float {
+    public static func fetchValue(forKey: String) -> Float {
         return UserDefaults.standard.float(forKey: forKey)
     }
 }
 
 extension Double: Cachable {
-    typealias T = Double
-    static func cache(value: Double, forKey: String) {
+    public typealias T = Double
+    public static func cache(value: Double, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
         UserDefaults.standard.synchronize()
     }
-    static func fetchValue(forKey: String) -> Double {
+    public static func fetchValue(forKey: String) -> Double {
         return UserDefaults.standard.double(forKey: forKey)
     }
 }
 
 
 extension Array: Cachable {
-    typealias T = [Any]
-    static func fetchValue(forKey: String) -> [Any] {
+    public typealias T = [Any]
+    public static func fetchValue(forKey: String) -> [Any] {
         return UserDefaults.standard.array(forKey: forKey) ?? []
     }
-    static func cache(value: [Any], forKey: String) {
+    public static func cache(value: [Any], forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
     }
 }
 
 
 extension Dictionary: Cachable {
-    typealias T = [String: Any]
-    static func fetchValue(forKey: String) -> [String : Any] {
+    public typealias T = [String: Any]
+    public static func fetchValue(forKey: String) -> [String : Any] {
         return UserDefaults.standard.dictionary(forKey: forKey) ?? [:]
     }
-    static func cache(value: [String : Any], forKey: String) {
+    public static func cache(value: [String : Any], forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
     }
 }
@@ -175,7 +175,7 @@ extension Dictionary: Cachable {
  ```
  
  */
-struct AutoCache<V: Cachable> {
+public struct AutoCache<V: Cachable> {
     typealias T = V
     let name: String
     
@@ -195,7 +195,7 @@ struct AutoCache<V: Cachable> {
 }
 
 infix operator ~~
-func ~~ <V>(lhs: V, rhs: String) -> AutoCache<V> {
+public func ~~ <V>(lhs: V, rhs: String) -> AutoCache<V> {
     var v = AutoCache<V>(name: rhs)
     v.value = lhs
     return v
@@ -203,7 +203,7 @@ func ~~ <V>(lhs: V, rhs: String) -> AutoCache<V> {
 
 
 infix operator <~
-func <~ <V>(lhs: inout AutoCache<V>, rhs: V?) {
+public func <~ <V>(lhs: inout AutoCache<V>, rhs: V?) {
     if rhs == nil {
         lhs.clear()
     }
@@ -213,6 +213,6 @@ func <~ <V>(lhs: inout AutoCache<V>, rhs: V?) {
 }
 
 prefix operator %%
-prefix func %% <V>(rhs: AutoCache<V>) -> V {
+public prefix func %% <V>(rhs: AutoCache<V>) -> V {
     return rhs.value
 }
