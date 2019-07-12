@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "BFAutoCache"
-  spec.version      = "0.1.0"
+  spec.version      = "0.1.1"
   spec.summary      = "A box value type for automatically caching/fetching the value to/from a specific backend(default is UserDefaults)."
 
   # This description is used to generate tags and improve search results.
@@ -69,7 +69,7 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  spec.ios.deployment_target = "12.0"
+  spec.ios.deployment_target = "11.0"
   spec.osx.deployment_target = "10.13"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
