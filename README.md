@@ -1,4 +1,10 @@
 # BFAutoCache
+
+![](https://img.shields.io/badge/language-swift-orange.svg)
+![](https://img.shields.io/cocoapods/v/BFAutoCache.svg?style=flat)
+![](https://img.shields.io/cocoapods/p/BFAutoCache.svg?style=flat)
+![](https://img.shields.io/cocoapods/l/BFAutoCache.svg?style=flat)
+
 A box value type for automatically caching the value<V> to a specific backend(default is UserDefaults)
 
 ## Motivation
@@ -110,6 +116,12 @@ To cache a value, a key is needed to save the value and retrieve it. So when def
  
  var books: AutoCache<[String: Float]>
  books <~ ["Swift": 10.0, "Java": 8.0]
+ ```
+ 
+ ## How to Install
+ Simply using Cocoapod:
+ ```
+ pod 'BFAutoCache'
  ```
  
  ## Enhance the BFAutoCache
