@@ -15,6 +15,7 @@ public protocol Cachable {
     associatedtype T
     static func cache(value: T, forKey: String)
     static func fetchValue(forKey: String) -> T
+    static func regist(value: T, forKey: String)
     static func clear(forKey: String)
 }
 
@@ -23,6 +24,10 @@ public extension Cachable {
     static func clear(forKey: String) {
         UserDefaults.standard.removeObject(forKey: forKey)
         UserDefaults.standard.synchronize()
+    }
+    
+    static func regist(value: T, forKey: String) {
+        UserDefaults.standard.register(defaults: [forKey: value])
     }
 }
 
@@ -192,12 +197,18 @@ public struct AutoCache<V: Cachable> {
     func clear() {
         V.clear(forKey: name)
     }
+    
+    init(name: String, initial: V? = nil) {
+        self.name = name
+        if let v = initial {
+            V.regist(value: v as! V.T, forKey: name)
+        }
+    }
 }
 
 infix operator ~~
 public func ~~ <V>(lhs: V, rhs: String) -> AutoCache<V> {
-    var v = AutoCache<V>(name: rhs)
-    v.value = lhs
+    let v = AutoCache<V>(name: rhs, initial: lhs)
     return v
 }
 

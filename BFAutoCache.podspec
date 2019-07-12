@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "BFAutoCache"
-  spec.version      = "0.1.1"
+  spec.version      = "0.1.2"
   spec.summary      = "A box value type for automatically caching/fetching the value to/from a specific backend(default is UserDefaults)."
 
   # This description is used to generate tags and improve search results.
