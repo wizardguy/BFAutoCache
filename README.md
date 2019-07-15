@@ -44,14 +44,20 @@ To cache a value, a key is needed to save the value and retrieve it. So when def
  Samples:
  
  ```Swift
- var i = AutoCache<Int>(name: "a")
- i.value = 1
- print(i.value)
  
  // This is equal to (by default Cachable implementation):
  // UserDefaults.standard.set(1, forKey: "a")
  // UserDefaults.standard.synchronize()
  // print(UserDefaults.standard.int(forKey: "a"))
+
+ var i = AutoCache<Int>(name: "a")
+ i.value = 1
+ print(i.value)
+
+ Or you can use a initial value as the default value if there is no such key in Defaults
+ // This is equal to (by default Cachable implementation):
+ // UserDefaults.standard.regist(defaults: ["a": 1])
+ var i = AutoCache<Int>(name: "a", initial: 1)
  
  var s = AutoCache<String>(name: "s")
  s.value = "Snow"
@@ -65,7 +71,7 @@ To cache a value, a key is needed to save the value and retrieve it. So when def
  ```
  
  There are also three operators which help maniplulate the AutoCache value much more easier and simple.
- - To bind the key name with the value, use '*~~*':
+ - To bind the key name with a default (if the key does not exist, the default value will be returned) value, use '*~~*':
  
  ```Swift
  var i = 1~~'i'

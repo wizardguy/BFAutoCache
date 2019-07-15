@@ -130,6 +130,12 @@ extension Dictionary: Cachable {
  // UserDefaults.standard.synchronize()
  // print(UserDefaults.standard.int(forKey: "a"))
  
+ Or you can use a initial value as the default value if there is no such key in Defaults
+ var i = AutoCache<Int>(name: "a", initial: 1)
+ 
+ // This is equal to (by default Cachable implementation):
+ // UserDefaults.standard.regist(defaults: ["a": 1])
+ 
  var s = AutoCache<String>(name: "s")
  s.value = "Snow"
  print(s.value)
@@ -142,7 +148,7 @@ extension Dictionary: Cachable {
  ```
  
  There are also three operators which help maniplulate the AutoCache value much more easier and simple.
- - To bind the key name with the value, use '*~~*':
+ - To bind the key name with a default value, use '*~~*':
  ```
  var i = 1~~'i'
  var s = "Ned"~~"LordOfNorth"
@@ -198,7 +204,7 @@ public struct AutoCache<V: Cachable> {
         V.clear(forKey: name)
     }
     
-    init(name: String, initial: V? = nil) {
+    public init(name: String, initial: V? = nil) {
         self.name = name
         if let v = initial {
             V.regist(value: v as! V.T, forKey: name)
