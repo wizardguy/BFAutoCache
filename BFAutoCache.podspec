@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "BFAutoCache"
-  spec.version      = "0.1.3"
+  spec.version      = "0.1.4"
   spec.summary      = "A box value type for automatically caching/fetching the value to/from a specific backend(default is UserDefaults)."
 
   # This description is used to generate tags and improve search results.
@@ -135,6 +135,6 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
-  spec.swift_version = "4.2"
+  spec.swift_version = "5.0"
 
 end
