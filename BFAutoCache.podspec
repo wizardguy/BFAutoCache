@@ -69,7 +69,7 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  spec.ios.deployment_target = "11.0"
+  spec.ios.deployment_target = "12.0"
   spec.osx.deployment_target = "10.13"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -137,7 +137,7 @@ Pod::Spec.new do |spec|
   # spec.dependency "JSONKit", "~> 1.4"
   spec.swift_version = "5.0"
 
-  s.pod_target_xcconfig = {
+  spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => '', # 不排除任何模拟器架构
     'VALID_ARCHS' => 'x86_64 arm64',        # 明确支持的架构
     'ONLY_ACTIVE_ARCH' => 'NO'                    # 构建所有架构
