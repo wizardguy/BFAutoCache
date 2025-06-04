@@ -138,7 +138,8 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.0"
 
   spec.pod_target_xcconfig = {
-    'ONLY_ACTIVE_ARCH' => 'NO'
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]" => "arm64",
+    "ONLY_ACTIVE_ARCH" => "NO"
   }
 
 end
