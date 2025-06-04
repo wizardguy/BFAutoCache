@@ -138,9 +138,9 @@ Pod::Spec.new do |spec|
   spec.swift_version = "5.0"
 
   spec.pod_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => '', # 不排除任何模拟器架构
-    'VALID_ARCHS' => 'x86_64 arm64',        # 明确支持的架构
-    'ONLY_ACTIVE_ARCH' => 'NO'                    # 构建所有架构
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => '',
+    'VALID_ARCHS' => 'x86_64 arm64',
+    'ONLY_ACTIVE_ARCH' => 'NO'
   }
 
 end
